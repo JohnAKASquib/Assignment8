@@ -3,6 +3,9 @@ import React, { Component } from "react";
 class TableCell extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      color: this.props.color,
+    };
   }
   getStyle = (color) => {
     return {
@@ -15,8 +18,16 @@ class TableCell extends Component {
     };
   };
 
+  handleClick = () => {
+    this.setState({ color: this.props.color });
+  };
   render() {
-    return <div style={this.getStyle(this.props.color)}></div>;
+    return (
+      <div
+        style={this.getStyle(this.state.color)}
+        onClick={this.handleClick}
+      ></div>
+    );
   }
 }
 
