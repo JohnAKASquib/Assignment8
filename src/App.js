@@ -9,6 +9,7 @@ class App extends Component {
       rows: 4,
       cols: 3,
       currColor: "white",
+      selectedColor: "",
     };
   }
   //increase rows by 1
@@ -21,8 +22,9 @@ class App extends Component {
   };
   //set color in state
   handleColorChange = (e) => {
-    this.setState({ currColor: e.target.value });
+    this.setState({ selectedColor: e.target.value });
   };
+
   render() {
     return (
       <div>
@@ -38,7 +40,8 @@ class App extends Component {
         <Table
           rows={this.state.rows}
           cols={this.state.cols}
-          color={this.state.currColor}
+          defColor={this.state.currColor}
+          color={this.state.selectedColor}
         />
       </div>
     );
