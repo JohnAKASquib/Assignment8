@@ -4,14 +4,14 @@ class TableCell extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: this.props.color,
+      defColor: this.props.defColor,
     };
   }
   getStyle = (color) => {
     return {
       borderStyle: "solid",
       borderColor: "black",
-      backgroundColor: color,
+      backgroundColor: this.state.color,
       display: "inline-block",
       height: "50px",
       width: "125px",
@@ -19,14 +19,17 @@ class TableCell extends Component {
   };
 
   handleClick = () => {
+    //console.log(this.state.color);
     this.setState({ color: this.props.color });
   };
+
   render() {
+    console.log("In tableCell the color is:" + this.props.color);
     return (
-      <div
-        style={this.getStyle(this.state.color)}
+      <td
+        style={this.getStyle(this.state.defColor)}
         onClick={this.handleClick}
-      ></div>
+      ></td>
     );
   }
 }
